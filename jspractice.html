@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>hide demo</title>
+  <style>
+  span {
+    background: #def3ca;
+    padding: 3px;
+    float: left;
+  }
+  
+  
+  
+  #hnd{ 
+            color: green; 
+            border: 5px solid ; 
+            width: 200px; 
+            text-align: center; 
+        } 
+  
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<button id="hider">Hide</button>
+<button id="shower">Show</button>
+<div>
+  <span>Hiding and showing the text </span> </div><br><br><br>
+  <div id="hnd">hide and show using toggle</div><br><br>
+  <button id="hideandshow">hide and show</button> <br><br>
+
+<button id="btn1">Click to fade out sentences</button><br><br><br><br>
+
+
+
+<div id="div1">1st sentence</div>
+
+<div id="div2">2nd sentence</div><br><br><br><br>
+
+
+
+<button id="btn2">Click to fade in sentences</button><br><br><br><br>
+
+
+<script>
+$( "#hider" ).click(function() {
+  $( "span:last-child" ).hide( "fast", function() {
+
+    $( this ).prev().hide( "fast", arguments.callee );
+  });
+});
+$( "#shower" ).click(function() {
+  $( "span" ).show( );
+});
+
+
+
+$(document).ready(function() { 
+            $("#hideandshow").click(function() { 
+                $("#hnd").toggle(); 
+            }); 
+        }); 
+
+
+
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("#div1").fadeOut();
+    $("#div2").fadeOut();
+  });
+});
+
+
+$(document).ready(function(){
+  $("#btn2").click(function(){
+    $("#div1").fadeIn();
+    $("#div2").fadeIn();
+  });
+});
+
+</script>
+ 
+</body>
+</html>
